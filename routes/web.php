@@ -91,19 +91,20 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class)->name('register');
     Route::get('/login', Login::class)->name('login');
 
-    Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
-    Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
+   // Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
+   //  Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/billing', Billing::class)->name('billing');
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/tables', Tables::class)->name('tables');
-    Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
-    Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
-    Route::get('/rtl', Rtl::class)->name('rtl');
-    Route::get('/virtual-reality', VirtualReality::class)->name('virtual-reality');
+    //Route::get('/billing', Billing::class)->name('billing');
+    //Route::get('/profile', Profile::class)->name('profile');
+    //Route::get('/tables', Tables::class)->name('tables');
+    //Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
+    //Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
+    //Route::get('/rtl', Rtl::class)->name('rtl');
+    //Route::get('/virtual-reality', VirtualReality::class)->name('virtual-reality');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/user-add', UserProfile::class)->name('user-add');
     Route::get('/user-management', UserManagement::class)->name('user-management');
 });

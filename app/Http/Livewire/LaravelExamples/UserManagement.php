@@ -11,6 +11,6 @@ class UserManagement extends Component
     {
         $users = User::all();
 
-        return view('livewire.laravel-examples.user-management', ['users' => $users] );
+        return view('livewire.user.user-management', ['users' => $users] );
     }
 }

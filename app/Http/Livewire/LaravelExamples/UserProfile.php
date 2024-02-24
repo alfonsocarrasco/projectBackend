@@ -27,21 +27,12 @@ class UserProfile extends Component
     {
         $this->validate();
 
-        if (env('IS_DEMO') && auth()->user()->id == 1) {
-            if (auth()->user()->email == $this->user->email) {
-                $this->user->save();
-                return back()->with('status', "Your profile information have been successfuly saved!");
-            }
-
-            return back()->with('demo', "You are in a demo version. You are not allowed to change the email for default users.");
-        }
-
         $this->user->save();
 
-        return back()->with('status', "Your profile information have been successfully saved!");
+        return back()->with('status', "Your profile information have been successfully saved! 🍻");
     }
     public function render()
     {
-        return view('livewire.laravel-examples.user-profile');
+        return view('livewire.user.user-profile');
     }
 }
