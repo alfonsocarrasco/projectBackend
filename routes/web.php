@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\User\UserCreate;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -8,17 +10,16 @@ use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Billing;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Tables;
-use App\Http\Livewire\StaticSignIn;
-use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
+/*use App\Http\Livewire\User\Billing;
+use App\Http\Livewire\User\Profile;
+use App\Http\Livewire\User\Tables;
+use App\Http\Livewire\User\StaticSignIn;
+use App\Http\Livewire\User\StaticSignUp;
+use App\Http\Livewire\User\Rtl;*/
 
-use App\Http\Livewire\LaravelExamples\UserProfile;
-use App\Http\Livewire\LaravelExamples\UserManagement;
-use App\Http\Livewire\VirtualReality;
+use App\Http\Livewire\User\UserProfile;
+use App\Http\Livewire\User\UserManagement;
+//use App\Http\Livewire\User\VirtualReality;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -105,6 +106,6 @@ Route::middleware('auth')->group(function () {
     //Route::get('/rtl', Rtl::class)->name('rtl');
     //Route::get('/virtual-reality', VirtualReality::class)->name('virtual-reality');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
-    Route::get('/user-add', UserProfile::class)->name('user-add');
+    Route::get('/user-add', UserCreate::class)->name('user-add');
     Route::get('/user-management', UserManagement::class)->name('user-management');
 });
