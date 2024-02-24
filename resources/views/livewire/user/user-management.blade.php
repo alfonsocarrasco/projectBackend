@@ -98,8 +98,15 @@
                                 <td
                                         class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <p class="mb-0 font-semibold leading-tight text-base">
-                                        <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
+
+                                        <a href="{{ route('user-update', ['userId' => $user->id]) }}">
+                                            <i class="fas fa-user-edit" aria-hidden="true"></i>
+                                        </a>
+
+                                        @if($user->id > 1)
                                         <a href="#"><i class="cursor-pointer fas fa-trash" aria-hidden="true"></i></a>
+                                        @endif
+
                                     </p>
                                 </td>
                             </tr>
