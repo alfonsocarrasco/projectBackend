@@ -8,6 +8,20 @@
                 <p>🦩 Here you can manage users.</p>
             </div>
 
+            @if (Session::has('status'))
+
+                <div id="alert"
+                     class="relative p-4 pr-12 mb-4 text-white border border-solid rounded-lg bg-developer-purple-gradiant border-slate-100">
+                    {{ Session::get('status') }}
+                    <button type="button" onclick="alertClose()"
+                            class="box-content absolute top-0 right-0 p-2 text-white bg-transparent border-0 rounded w-4-em h-4-em text-size-sm z-2">
+                        <span aria-hidden="true" class="text-center cursor-pointer">&#10005;</span>
+                    </button>
+                </div>
+
+            @endif
+
+
             <div class="my-auto ml-auto pr-6">
                 <a href="{{ route('user-add') }}">
                     <button type="button"
@@ -98,8 +112,15 @@
                                 <td
                                         class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <p class="mb-0 font-semibold leading-tight text-base">
-                                        <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                        <a href="#"><i class="cursor-pointer fas fa-trash" aria-hidden="true"></i></a>
+
+                                        <a href="{{ route('user-update', ['userId' => $user->id]) }}">
+                                            <i class="fas fa-user-edit" aria-hidden="true"></i>
+                                        </a>
+
+                                        @if($user->id > 1)
+                                        <a href="{{ route('user-delete', ['userId' => $user->id]) }}"><i class="cursor-pointer fas fa-trash" aria-hidden="true"></i></a>
+                                        @endif
+
                                     </p>
                                 </td>
                             </tr>
@@ -110,4 +131,9 @@
             </div>
         </div>
     </div>
+    <script>
+        function alertClose() {
+            document.getElementById("alert").style.display = "none";
+        }
+    </script>
 </div>

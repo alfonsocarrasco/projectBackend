@@ -38,7 +38,8 @@
     {{ (Request::is('dashboard') ||
 Request::is('user-profile') ||
 Request::is('user-management') ||
-Request::is('user-add')? ' bg-dashboard ' : '' ) }} "
+Request::is('user-add') ||
+Request::is('user-update*')? ' bg-dashboard ' : '' ) }} "
 >
     {{ $slot }}
 

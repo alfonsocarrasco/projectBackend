@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\User\UserCreate;
+use App\Http\Livewire\User\UserUpdate;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -106,6 +107,17 @@ Route::middleware('auth')->group(function () {
     //Route::get('/rtl', Rtl::class)->name('rtl');
     //Route::get('/virtual-reality', VirtualReality::class)->name('virtual-reality');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/user-update/{userId}', UserUpdate::class)->name('user-update');
     Route::get('/user-add', UserCreate::class)->name('user-add');
+    Route::get('/user-delete/{userId}', function ($userId) {
+        $user = User::where('id', $userId)->first();
+
+        if ($user) {
+            $user->delete();
+            return redirect()->route('user-management')->with('status', 'User deleted successfully.');
+        } else {
+            return redirect()->route('user-management')->with('error', 'User not found.');
+        }
+    })->name('user-delete');
     Route::get('/user-management', UserManagement::class)->name('user-management');
 });
