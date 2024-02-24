@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Hiring Me!!'),
             'about' => "Hi, I’m Alfonso Carrasco, Fullstack developer",
         ]);
+
+        User::factory()->count(5)->create();
     }
 }
