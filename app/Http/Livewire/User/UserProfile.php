@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\LaravelExamples;
+namespace App\Http\Livewire\User;
 
 use App\Models\User;
-
 use Livewire\Component;
 
 class UserProfile extends Component
@@ -12,7 +11,7 @@ class UserProfile extends Component
 
     protected $rules = [
         'user.name' => 'max:40|min:3',
-        'user.email' => 'email:rfc,dns',
+        'user.email' => 'email:rfc',
         'user.phone' => 'max:10',
         'user.about' => 'max:200',
         'user.location' => 'min:3'

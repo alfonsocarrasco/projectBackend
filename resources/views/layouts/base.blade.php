@@ -35,7 +35,10 @@
 </head>
 
 <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500
-    {{ (Request::is('dashboard') || Request::is('user-profile') || Request::is('user-management')? ' bg-dashboard ' : '' ) }} "
+    {{ (Request::is('dashboard') ||
+Request::is('user-profile') ||
+Request::is('user-management') ||
+Request::is('user-add')? ' bg-dashboard ' : '' ) }} "
 >
     {{ $slot }}
 
